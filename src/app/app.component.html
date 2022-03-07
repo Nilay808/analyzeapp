@@ -1,0 +1,62 @@
+<mat-tab-group>
+
+  <mat-tab label="FileUpload">
+
+    <mat-toolbar>
+      <!-- Display files names -->
+
+      <p>file: <input #filename matInput [(ngModel)]="fileAttr" readonly name="name" /> </p>
+
+
+      <!-- Fetch selected filed on change -->
+      <input #fileInput id="fileInput" type="file" (change)="uploadFileEvt($event)" name="uploadFile" hidden />
+      <button mat-flat-button color="primary">
+        <label for="fileInput" id="fileInputLabel">
+          Browse
+        </label>
+      </button>
+    </mat-toolbar>
+    <br />
+    <div id="progress-bar">
+      <mat-progress-bar mode="buffer" *ngIf="uploading" value="0"></mat-progress-bar>
+    </div>
+    <button type="submit" (click)="uploadfile()"> Upload </button>
+    <p *ngIf="uploaded"> File Uploaded</p>
+
+
+  </mat-tab>
+  <mat-tab label=" History"> File Upload History
+    <tbody>
+      <tr *ngFor="let i of filelist">
+        <td>{{i}}</td>
+      </tr>
+
+    </tbody>
+
+    <!-- <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
+
+      <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+        {{node.name}}
+      </mat-tree-node>
+
+      <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+        <div class="mat-tree-node">
+          <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+            <mat-icon class="mat-icon-rtl-mirror">
+              {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
+          </button>
+          {{node.name}}
+        </div>
+        <div [class.example-tree-invisible]="!treeControl.isExpanded(node)" role="group">
+          <ng-container matTreeNodeOutlet></ng-container>
+        </div>
+      </mat-nested-tree-node>
+    </mat-tree> -->
+
+    <button mat-flat-button color="accent" (click)="clearHistory()">
+      Clear
+    </button>
+  </mat-tab>
+
+</mat-tab-group>

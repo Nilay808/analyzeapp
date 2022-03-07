@@ -1,0 +1,3 @@
+#progress-bar {
+  width: clamp(25%, 500px, 90%);
+}
