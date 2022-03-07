@@ -1,11 +1,10 @@
 <mat-tab-group>
 
-  <mat-tab label="FileUpload">
+  <mat-tab label="upload page">
 
     <mat-toolbar>
       <!-- Displaying files names -->
       <p>file: <input #filename matInput [(ngModel)]="fileAttr" readonly name="name" /> </p>
-
 
       <!-- Fetch selected files on change -->
       <input #fileInput id="fileInput" type="file" (change)="uploadFileEvt($event)" name="uploadFile" hidden />
@@ -29,7 +28,7 @@
 
 
   </mat-tab>
-  <mat-tab label=" History"> File Upload History
+  <mat-tab label="history page"> File Upload History
     <tbody>
     <!-- Showing Uploaded File List -->
       <tr *ngFor="let i of filelist">
