@@ -11,7 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
-import {MatTreeModule} from '@angular/material/tree';
+
 
 
 @NgModule({
@@ -29,7 +29,6 @@ import {MatTreeModule} from '@angular/material/tree';
     MatProgressBarModule,
     MatToolbarModule,
     FormsModule,
-    MatTreeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

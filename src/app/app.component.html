@@ -3,12 +3,11 @@
   <mat-tab label="FileUpload">
 
     <mat-toolbar>
-      <!-- Display files names -->
-
+      <!-- Displaying files names -->
       <p>file: <input #filename matInput [(ngModel)]="fileAttr" readonly name="name" /> </p>
 
 
-      <!-- Fetch selected filed on change -->
+      <!-- Fetch selected files on change -->
       <input #fileInput id="fileInput" type="file" (change)="uploadFileEvt($event)" name="uploadFile" hidden />
       <button mat-flat-button color="primary">
         <label for="fileInput" id="fileInputLabel">
@@ -17,43 +16,28 @@
       </button>
     </mat-toolbar>
     <br />
+    <!-- Upload Button -->
+    <button mat-flat-button color="primary" type="submit" (click)="uploadfile()"> Upload </button>
+
+    <!-- progress-bar -->
     <div id="progress-bar">
       <mat-progress-bar mode="buffer" *ngIf="uploading" value="0"></mat-progress-bar>
     </div>
-    <button type="submit" (click)="uploadfile()"> Upload </button>
-    <p *ngIf="uploaded"> File Uploaded</p>
+
+    <!-- Upload Status -->
+    <p *ngIf="uploaded"> Upload Complete !!</p>
 
 
   </mat-tab>
   <mat-tab label=" History"> File Upload History
     <tbody>
+    <!-- Showing Uploaded File List -->
       <tr *ngFor="let i of filelist">
         <td>{{i}}</td>
       </tr>
-
     </tbody>
 
-    <!-- <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
-
-      <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
-        {{node.name}}
-      </mat-tree-node>
-
-      <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
-        <div class="mat-tree-node">
-          <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
-            <mat-icon class="mat-icon-rtl-mirror">
-              {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-            </mat-icon>
-          </button>
-          {{node.name}}
-        </div>
-        <div [class.example-tree-invisible]="!treeControl.isExpanded(node)" role="group">
-          <ng-container matTreeNodeOutlet></ng-container>
-        </div>
-      </mat-nested-tree-node>
-    </mat-tree> -->
-
+    <!-- Clear button to remove all files -->
     <button mat-flat-button color="accent" (click)="clearHistory()">
       Clear
     </button>
